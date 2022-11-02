@@ -2,8 +2,8 @@
 /*Bu görevleri yaparken çıktıların doğru çalıştığını kontrol etmeniz için console.log'u sıklıkla kullanmanızı tavsiye ediyoruz.*/
 
 ///////////////Menu Elemanları ///////////////////
-const cay = {isim: "Çay", fiyat: 4, kategori: "İçecekler"};
-const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı"};
+const cay = { isim: "Çay", fiyat: 4, kategori: "İçecekler" };
+const serpmeKahvalti = { isim: "Serpme Kahvaltı", fiyat: 16, kategori: "Kahvaltı" };
 
 /* Görev 1a: Nesneler döndüren bir fonksiyon yazın
 	Aşağıdaki MenuElemaniOlustur fonksiyonunu, yukarıda gördüğünüz cay ve serpmeKahvalti (isim, fiyat, kategori) nesnelerini oluşturacak şekilde yazın. 
@@ -15,7 +15,7 @@ const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı
 */
 
 
-function MenuElemaniOlustur(isim, fiyat, kategori){
+function MenuElemaniOlustur(isim, fiyat, kategori) {
 	const menuElemani = {
 		"isim": isim,
 		"fiyat": fiyat,
@@ -56,13 +56,13 @@ console.log(MenuElemaniOlustur('Cheeseburger', 8, 'Burgerler'));
 
 
 const burger = {
-	isim: "Burger", 
-	fiyat: 18, 
-	kategori: "Öğle Yemeği", 
-	indirim: function(meslek) {
-		if(meslek == "öğretmen" || meslek == "öğrenci"){
+	isim: "Burger",
+	fiyat: 18,
+	kategori: "Öğle Yemeği",
+	indirim: function (meslek) {
+		if (meslek == "öğretmen" || meslek == "öğrenci") {
 			return this.fiyat * 0.75;
-		} else{
+		} else {
 			return this.fiyat * 0.9;
 		}
 	}
@@ -74,14 +74,14 @@ console.log(burger.indirim("öğretmen"));
 
 ///////////////Değerlendirmeler (MVP)///////////////////
 const degerlendirmeler = [
-    {isim: "Nalan", puan: 5, geribildirim:"Mükemmel atmosfer ve mükemmel vegan seçenekleri!"},
-    {isim: "Kuddusi", puan: 3, geribildirim:"Benim zevkime göre biraz fazla yenilikçi, burger iyi ama fiyatı yüksek"},
-    {isim: "Kamuran", puan: 4, geribildirim:"eğlenceli bilgiler ve havalı hisler"},
-    {isim: "Elif", puan: 4.5, geribildirim:"Evimden pek çıkmıyorum ama çıktığımda sadece buraya geliyorum. Şiddetle tavsiye ederim."},
-    {isim: "Pınar", puan: 3, geribildirim: "atıştırmalıklar harika ve gün içinde çalışmak için güzel bir cafe alanı."},
-    {isim: "Ahmet", puan: 2, geribildirim: "Bu mekan beni fazla etkilemedi. Menüde özel bir şey yok ve çok pahalı. Atmosferi de ben beğenmedim ama başkaları beğenebilir." },
-    {isim: "Latife", puan: 4, geribildirim: "Kesinlikle karaoke Cumalarını seviyorum! Yemek ve içki çeşitleri iyi."},
-    {isim: "Reyna", puan: 3.5, geribildirim: ""},
+	{ isim: "Nalan", puan: 5, geribildirim: "Mükemmel atmosfer ve mükemmel vegan seçenekleri!" },
+	{ isim: "Kuddusi", puan: 3, geribildirim: "Benim zevkime göre biraz fazla yenilikçi, burger iyi ama fiyatı yüksek" },
+	{ isim: "Kamuran", puan: 4, geribildirim: "eğlenceli bilgiler ve havalı hisler" },
+	{ isim: "Elif", puan: 4.5, geribildirim: "Evimden pek çıkmıyorum ama çıktığımda sadece buraya geliyorum. Şiddetle tavsiye ederim." },
+	{ isim: "Pınar", puan: 3, geribildirim: "atıştırmalıklar harika ve gün içinde çalışmak için güzel bir cafe alanı." },
+	{ isim: "Ahmet", puan: 2, geribildirim: "Bu mekan beni fazla etkilemedi. Menüde özel bir şey yok ve çok pahalı. Atmosferi de ben beğenmedim ama başkaları beğenebilir." },
+	{ isim: "Latife", puan: 4, geribildirim: "Kesinlikle karaoke Cumalarını seviyorum! Yemek ve içki çeşitleri iyi." },
+	{ isim: "Reyna", puan: 3.5, geribildirim: "" },
 ]
 
 /*  Görev 3 (ototest yok):  
@@ -107,9 +107,9 @@ console.log(studentFeedback[0].geribildirim);
 */
 
 
-degerlendirmeler.map((student) => { 
-	if(student.isim == "Reyna"){
-		student.geribildirim = "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım";		
+degerlendirmeler.map((student) => {
+	if (student.isim == "Reyna") {
+		student.geribildirim = "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım";
 	}
 });
 
@@ -130,7 +130,7 @@ console.log(degerlendirmeler);
 
 
 
-function DegerledirmeEkle(array5, isim, puan, geribildirim){
+function DegerledirmeEkle(array5, isim, puan, geribildirim) {
 	const degerlendirme = {
 		"isim": isim,
 		"puan": puan,
@@ -139,7 +139,7 @@ function DegerledirmeEkle(array5, isim, puan, geribildirim){
 
 	array5.push(degerlendirme);
 	return array5;
-	
+
 }
 
 console.log(DegerledirmeEkle(degerlendirmeler, 'Hurşut', 2, 'Boktan yemekler!'));
@@ -161,7 +161,7 @@ function AnahtardanDegerlendirmeAl(array6, index) {
 	let istenenIsim = array6[index].isim;
 	let istenenPuan = array6[index].puan;
 	let Feedback = array6[index].geribildirim;
-	
+
 	return `${istenenIsim} isimli kişi ${istenenPuan} puan verdi ve şunları yazdı: ${Feedback}`;
 }
 
@@ -189,7 +189,7 @@ function SonDegerlendirmeyiAl(array7) {
 	let feedback = array7[sonIndex].geribildirim;
 
 	return `${istenenIsim} isimli kişi ${istenenPuan} puan verdi ve şunları yazdı: ${feedback}`;
-} 
+}
 
 console.log(SonDegerlendirmeyiAl(degerlendirmeler))
 
@@ -204,17 +204,20 @@ console.log(SonDegerlendirmeyiAl(degerlendirmeler))
 	
 	Örnek: PuanaGoreDegerlendirmeAl(degerlendirmeler, 4) 4 ile 4.9 puan aralığındaki tüm değerlendirmeleri döndürecek :
 	[
-    {isim: "Kamuran", puan: 4, geribildirim:"eğlenceli bilgiler ve havalı hisler},
-    {isim: "Elif", puan: 4.5, geribildirim:"Evimden pek çıkmıyorum ama çıktığımda sadece buraya geliyorum. Şiddetle tavsiye ederim."},
-    {isim:"Latife", puan: 4, geribildirim: "Kesinlikle karaoke Cumalarını seviyorum! Yemek ve içki çeşitleri iyi."}
+	{isim: "Kamuran", puan: 4, geribildirim:"eğlenceli bilgiler ve havalı hisler},
+	{isim: "Elif", puan: 4.5, geribildirim:"Evimden pek çıkmıyorum ama çıktığımda sadece buraya geliyorum. Şiddetle tavsiye ederim."},
+	{isim:"Latife", puan: 4, geribildirim: "Kesinlikle karaoke Cumalarını seviyorum! Yemek ve içki çeşitleri iyi."}
 	]
 */
 
-function PuanaGoreDegerlendirmeAl(/* Kodlar buraya */) {
-    /* Kodlar buraya */
+function PuanaGoreDegerlendirmeAl(arrayPlus1, puan) {
+	let puanDizi = arrayPlus1.filter(degerlendirme =>
+		(puan <= degerlendirme.puan && puan + 1 > degerlendirme.puan));
+	return puanDizi;
 }
 
-
+console.log(PuanaGoreDegerlendirmeAl(degerlendirmeler, 4));
+console.log("*********************");
 /*  BONUS 2:    
 	UzunDegerlendirmeleriAl fonksiyonuna aşağıdakileri uygulayın:
 	1. Tüm değerlendirmeleri içeren diziyi alacak
@@ -222,9 +225,13 @@ function PuanaGoreDegerlendirmeAl(/* Kodlar buraya */) {
 	
 */
 
-function UzunDegerlendirmeleriAl(/* Kodlar buraya */) {
-    /* Kodlar buraya */
+function UzunDegerlendirmeleriAl(arrayPlus2) {
+	let lengthDizi = arrayPlus2.filter(
+		degerlendirme => degerlendirme.geribildirim.split(" ").length > 15);
+	return lengthDizi;
 }
+
+console.log(UzunDegerlendirmeleriAl(degerlendirmeler));
 
 
 /*  BONUS 3:  
@@ -245,14 +252,25 @@ function UzunDegerlendirmeleriAl(/* Kodlar buraya */) {
 */
 
 
-function arabaYapici(/* Kodlar buraya */) {
-    /* Kodlar buraya */
-    
+function arabaYapici(car, carKm) {
+	this.arabaAdi = car;
+	this.arabaKm = carKm;
+
+	this.surus = function (distance) {
+		carKm = carKm + distance;
+		return carKm;
+	}
 }
+
+let bmw = new arabaYapici("BMW", 100);
+let mercedes = new arabaYapici("Mercedes", 20);
+
+console.log(bmw.surus(100));
+console.log(mercedes.surus(150));
 
 
 /*  Buradan aşağıdaki kodları değiştirmeyin lütfen */
-function sa(){
+function sa() {
 	console.log('Kodlar çalışıyor');
 	return 'as';
 }
