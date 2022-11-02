@@ -15,9 +15,18 @@ const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı
 */
 
 
-function MenuElemaniOlustur(/*Kodlar buraya*/){
-	/*Kodlar buraya*/
+function MenuElemaniOlustur(isim, fiyat, kategori){
+	const menuElemani = {
+		"isim": isim,
+		"fiyat": fiyat,
+		"kategori": kategori
+	}
+
+	return menuElemani;
 }
+
+console.log(MenuElemaniOlustur('Cheeseburger', 8, 'Burgerler'));
+
 
 
 
@@ -50,8 +59,16 @@ const burger = {
 	isim: "Burger", 
 	fiyat: 18, 
 	kategori: "Öğle Yemeği", 
-
+	indirim: function(meslek) {
+		if(meslek == "öğretmen" || meslek == "öğrenci"){
+			return this.fiyat * 0.75;
+		} else{
+			return this.fiyat * 0.9;
+		}
+	}
 }
+
+console.log(burger.indirim("öğretmen"));
 
 
 
@@ -72,13 +89,31 @@ const degerlendirmeler = [
 	1. Sadece Ahmet'in geribildirimini konsolda görüntüleyin - fonksiyona gerek yok
 */
 
+let studentFeedback = degerlendirmeler.filter(student => student.isim == "Ahmet");
+console.log(studentFeedback[0].geribildirim);
+
+// degerlendirmeler.forEach(function(degerlendirme){
+// 	if(degerlendirme.isim == "Ahmet"){
+// 		console.log(degerlendirme.geribildirim);
+// 	}
+// });
+
 
 
 /*  Görev 4 (ototest yok):  
 	Reyna'nın geribildirimi girilmemiş! Aşağıdakileri uygulayın: (fonksiyona gerek yok) 
-	1. Bu geribildirimi Reyna'nın değerlendirmesine ekleyin - "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım"
+	1. Bu geribildirimi Reyna'nın değerlendirmesine ekleyin - "v"
 	2. degerlendirmeler dizisini konsolda görüntüleyerek çalışmanızı kontrol edin
 */
+
+
+degerlendirmeler.map((student) => { 
+	if(student.isim == "Reyna"){
+		student.geribildirim = "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım";		
+	}
+});
+
+console.log(degerlendirmeler);
 
 
 
@@ -94,10 +129,20 @@ const degerlendirmeler = [
 */
 
 
-function DegerledirmeEkle(/*Kodlar buraya */){
-	/*Kodlar buraya */
+
+function DegerledirmeEkle(array5, isim, puan, geribildirim){
+	const degerlendirme = {
+		"isim": isim,
+		"puan": puan,
+		"geribildirim": geribildirim
+	}
+
+	array5.push(degerlendirme);
+	return array5;
 	
 }
+
+console.log(DegerledirmeEkle(degerlendirmeler, 'Hurşut', 2, 'Boktan yemekler!'));
 
 
 
@@ -112,10 +157,15 @@ function DegerledirmeEkle(/*Kodlar buraya */){
 */
 
 
-function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
-
+function AnahtardanDegerlendirmeAl(array6, index) {
+	let istenenIsim = array6[index].isim;
+	let istenenPuan = array6[index].puan;
+	let Feedback = array6[index].geribildirim;
+	
+	return `${istenenIsim} isimli kişi ${istenenPuan} puan verdi ve şunları yazdı: ${Feedback}`;
 }
+
+console.log(AnahtardanDegerlendirmeAl(degerlendirmeler, 0));
 
 
 
@@ -132,10 +182,16 @@ function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
 */
 
 
-function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
+function SonDegerlendirmeyiAl(array7) {
+	let sonIndex = array7.length - 1;
+	let istenenIsim = array7[sonIndex].isim;
+	let istenenPuan = array7[sonIndex].puan;
+	let feedback = array7[sonIndex].geribildirim;
+
+	return `${istenenIsim} isimli kişi ${istenenPuan} puan verdi ve şunları yazdı: ${feedback}`;
 } 
 
+console.log(SonDegerlendirmeyiAl(degerlendirmeler))
 
 
 /////////////// BONUS  GÖRVLER////////////////////
