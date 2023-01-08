@@ -2,9 +2,19 @@
 /*Bu görevleri yaparken çıktıların doğru çalıştığını kontrol etmeniz için console.log'u sıklıkla kullanmanızı tavsiye ediyoruz.*/
 
 ///////////////Menu Elemanları ///////////////////
-const cay = {isim: "Çay", fiyat: 4, kategori: "İçecekler"};
-const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı"};
+const cay = {
+	isim: "Çay", 
+	fiyat: 4, 
+	kategori: "İçecekler"
+};
 
+const serpmeKahvalti = {
+	isim: "Serpme Kahvaltı", 
+	fiyat: 16, 
+	kategori:"Kahvaltı"
+};
+
+MenuElemaniOlustur
 /* Görev 1a: Nesneler döndüren bir fonksiyon yazın
 	Aşağıdaki MenuElemaniOlustur fonksiyonunu, yukarıda gördüğünüz cay ve serpmeKahvalti (isim, fiyat, kategori) nesnelerini oluşturacak şekilde yazın. 
 	Fonksiyonun özellikleri:
@@ -14,12 +24,17 @@ const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı
 	Örnek MenuElemaniOlustur('Cheeseburger', 8, 'Burgerler') şunu döndürmeli: {isim: 'Cheeseburger', fiyat: 8, kategori: 'Burgerler'}
 */
 
+function MenuElemaniOlustur(isim, fiyat, kategori) {
 
-function MenuElemaniOlustur(/*Kodlar buraya*/){
-	/*Kodlar buraya*/
+	const yeniEleman = {};
+	yeniEleman.isim = isim;
+	yeniEleman.fiyat = fiyat;
+	yeniEleman.kategori = kategori;
+
+	return yeniEleman;
 }
 
-
+//console.log(MenuElemaniOlustur("Hamburger", 6, "burger"));
 
 /*  Görev 1b (otomatik test yok): 
 	Fonksiyonu çağırın!
@@ -31,10 +46,14 @@ function MenuElemaniOlustur(/*Kodlar buraya*/){
 	Örnek: MenuElemaniOlustur("Karışık Pizza",5,"Pizzalar") şunu döndürür: {isim:"Karışık Pizza",fiyat:5,kategori:"Pizzalar"}
 */
 
+// console.log(MenuElemaniOlustur("Karışık Pizza",5,"Pizzalar"));
+// console.log(MenuElemaniOlustur("Ayran",3,"İçecekler"));
+// console.log(MenuElemaniOlustur("Baklava",7,"Tatlılar"));
 
 
 /* Görev 2: 
-	Özel bir öğle yemeği yiyorsun! Öğretmen ve öğrencilere %25, diğer kişilere %10 indirim var. Aşağıdaki burger nesnesine, indirimi fiyatı otomatik olarak hesaplayan bir metot ekleyin.
+	Özel bir öğle yemeği yiyorsun! Öğretmen ve öğrencilere %25, diğer kişilere %10 indirim var. 
+	Aşağıdaki burger nesnesine, indirimi fiyatı otomatik olarak hesaplayan bir metot ekleyin.
 	
 	burger nesnesine aşağıdakileri uygulayın:
 	1. burger nesnesine adı indirim olan bir metot ekleyin
@@ -50,10 +69,19 @@ const burger = {
 	isim: "Burger", 
 	fiyat: 18, 
 	kategori: "Öğle Yemeği", 
+	indirim:function(statü){
+		if(statü=="öğretmen"||statü=="öğrenci") {
+			return this.fiyat*0.75;
+		} else {
+			return this.fiyat*0.90;
+		}
+	}
 
 }
 
-
+// console.log(burger.indirim("öğretmen"));
+// console.log(burger.indirim("öğrenci"));
+// console.log(burger.indirim("diğer"));
 
 ///////////////Değerlendirmeler (MVP)///////////////////
 const degerlendirmeler = [
@@ -72,15 +100,15 @@ const degerlendirmeler = [
 	1. Sadece Ahmet'in geribildirimini konsolda görüntüleyin - fonksiyona gerek yok
 */
 
-
+//console.log(degerlendirmeler[5]);
 
 /*  Görev 4 (ototest yok):  
 	Reyna'nın geribildirimi girilmemiş! Aşağıdakileri uygulayın: (fonksiyona gerek yok) 
 	1. Bu geribildirimi Reyna'nın değerlendirmesine ekleyin - "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım"
 	2. degerlendirmeler dizisini konsolda görüntüleyerek çalışmanızı kontrol edin
 */
-
-
+degerlendirmeler.find(item => item.isim=="Reyna").geribildirim="bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım";
+//console.log(degerlendirmeler[7]);
 
 /*  Görev 5: 
 	isim, puan, geribildirim'i içeren bir değerlendirme nesnesi oluşturup, yeni değerlendirmeyi mevcut dizinin(array) sonuna ekleyip sonuç dizisini döndüren bir fonksiyon tanımlayın. 
@@ -94,10 +122,17 @@ const degerlendirmeler = [
 */
 
 
-function DegerledirmeEkle(/*Kodlar buraya */){
-	/*Kodlar buraya */
-	
+function DegerledirmeEkle(degerlendirmeler1, isim1, puan1, geribildirim1){
+	let yeniDegerlendirme={
+		isim: isim1,
+		puan: puan1,
+		geribildirim1: geribildirim1
+	};
+	degerlendirmeler1.push(yeniDegerlendirme);
+	return degerlendirmeler1;
 }
+console.log(DegerledirmeEkle(degerlendirmeler,"Hurşit", 5, "Mükemmel Yemekler!"));
+console.log(degerlendirmeler);
 
 
 
@@ -112,12 +147,12 @@ function DegerledirmeEkle(/*Kodlar buraya */){
 */
 
 
-function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
-
+function AnahtardanDegerlendirmeAl(dizi, index) {
+   
+	return `${dizi[index].isim} isimli kişi ${dizi[index].puan} puan verdi ve şunları yazdı: ${dizi[index].geribildirim}`
 }
 
-
+//console.log(AnahtardanDegerlendirmeAl(degerlendirmeler,0));
 
 /*  Görev 7:  
 	Diziden en son değerlendirmeyi döndüren adı `SonDegerlendirmeyiAl` olan bir fonksiyon yazın 
@@ -132,11 +167,14 @@ function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
 */
 
 
-function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
+function SonDegerlendirmeyiAl(dizi) {
+	
+	let index=dizi.length-1
+
+	return `${dizi[index].isim} isimli kişi ${dizi[index].puan} puan verdi ve şunları yazdı: ${dizi[index].geribildirim}`
 } 
 
-
+//console.log(SonDegerlendirmeyiAl(degerlendirmeler));
 
 /////////////// BONUS  GÖRVLER////////////////////
 
