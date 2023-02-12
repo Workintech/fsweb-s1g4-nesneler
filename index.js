@@ -15,9 +15,11 @@ const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı
 */
 
 
-function MenuElemaniOlustur(/*Kodlar buraya*/){
-	/*Kodlar buraya*/
-}
+function MenuElemaniOlustur(first, second, third) {
+	let yeniArr = { isim: first, fiyat: second, kategori: third };
+	return yeniArr;
+  }
+  console.log(MenuElemaniOlustur("Cheeseburger", 8, "Burgerler"));
 
 
 
@@ -47,11 +49,18 @@ function MenuElemaniOlustur(/*Kodlar buraya*/){
 
 
 const burger = {
-	isim: "Burger", 
-	fiyat: 18, 
-	kategori: "Öğle Yemeği", 
-
-}
+	isim: "Burger",
+	fiyat: 18,
+	kategori: "Öğle Yemeği",
+	indirim: function (meslek) {
+	  if (meslek == "öğrenci" || meslek == "öğretmen") {
+		return this.fiyat * 0.75;
+	  } else {
+		return this.fiyat * 0.9;
+	  }
+	},
+  };
+  console.log(burger.indirim("muhendis"));
 
 
 
@@ -71,6 +80,12 @@ const degerlendirmeler = [
 	Yukarıdaki degerlendirmeler dizisini(array) kullanarak:
 	1. Sadece Ahmet'in geribildirimini konsolda görüntüleyin - fonksiyona gerek yok
 */
+for (let i = 0; i < degerlendirmeler.length; i++) {
+	if (degerlendirmeler[i].isim == "Ahmet") {
+	  console.log(degerlendirmeler[i].geribildirim);
+	}
+  }
+  
 
 
 
@@ -94,10 +109,14 @@ const degerlendirmeler = [
 */
 
 
-function DegerledirmeEkle(/*Kodlar buraya */){
-	/*Kodlar buraya */
-	
-}
+function DegerledirmeEkle(arr, first, second, third) {
+	const newObjectt = { isim: first, puan: second, geribildirim: third };
+	arr.push(newObjectt);
+	return arr;
+  }
+  console.log(
+	DegerledirmeEkle(degerlendirmeler, "Hurşut", 2, "Boktan yemekler!")
+  );
 
 
 
@@ -112,10 +131,11 @@ function DegerledirmeEkle(/*Kodlar buraya */){
 */
 
 
-function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
-
-}
+function AnahtardanDegerlendirmeAl(arguman, index) {
+	return `${arguman[index].isim} isimli kişi ${arguman[index].puan} puan verdi ve şunları yazdı: ${arguman[index].geribildirim}`;
+  }
+  console.log(AnahtardanDegerlendirmeAl(degerlendirmeler, 3));
+  
 
 
 
@@ -132,9 +152,12 @@ function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
 */
 
 
-function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
-} 
+function SonDegerlendirmeyiAl(arguman) {
+	return `${arguman[arguman.length - 1].isim} isimli kişi ${
+	  arguman[arguman.length - 1].puan
+	} puan verdi ve şunları yazdı: ${arguman[arguman.length - 1].geribildirim}`;
+  }
+  console.log(SonDegerlendirmeyiAl(degerlendirmeler));
 
 
 
@@ -154,10 +177,16 @@ function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
 	]
 */
 
-function PuanaGoreDegerlendirmeAl(/* Kodlar buraya */) {
-    /* Kodlar buraya */
-}
-
+function PuanaGoreDegerlendirmeAl(arguman, puanAl) {
+	let yeniAray = [];
+	for (let i = 0; i < arguman.length; i++) {
+	  if (arguman[i].puan >= puanAl && arguman[i].puan < 5) {
+		yeniAray.push(arguman[i]);
+	  }
+	}
+	return yeniAray;
+  }
+  console.log(PuanaGoreDegerlendirmeAl(degerlendirmeler, 4));
 
 /*  BONUS 2:    
 	UzunDegerlendirmeleriAl fonksiyonuna aşağıdakileri uygulayın:
@@ -166,9 +195,17 @@ function PuanaGoreDegerlendirmeAl(/* Kodlar buraya */) {
 	
 */
 
-function UzunDegerlendirmeleriAl(/* Kodlar buraya */) {
-    /* Kodlar buraya */
-}
+function UzunDegerlendirmeleriAl(bildirim) {
+	let bildirimArray = [];
+	for (let i = 0; i < bildirim.length; i++) {
+	  let yeniArey = bildirim[i].geribildirim.split(" ");
+	  if (yeniArey.length > 15) {
+		bildirimArray.push(bildirim[i]);
+		return bildirimArray;
+	  }
+	}
+  }
+  console.log(UzunDegerlendirmeleriAl(degerlendirmeler));
 
 
 /*  BONUS 3:  
@@ -189,10 +226,17 @@ function UzunDegerlendirmeleriAl(/* Kodlar buraya */) {
 */
 
 
-function arabaYapici(/* Kodlar buraya */) {
-    /* Kodlar buraya */
-    
-}
+function arabaYapici(isim, km) {
+	const car = {
+	  isim: isim,
+	  km: km,
+	  surus: function (mesafe) {
+		this.km += mesafe;
+		return this.km;
+	  },
+	};
+	return car;
+  }
 
 
 /*  Buradan aşağıdaki kodları değiştirmeyin lütfen */
