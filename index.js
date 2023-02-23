@@ -138,10 +138,15 @@ console.log(DegerledirmeEkle(degerlendirmeler, 'Hurşut', 2, 'Boktan yemekler!')
 */
 
 
-function AnahtardanDegerlendirmeAl() {
-	
+function AnahtardanDegerlendirmeAl(newArray. kisi) {
+	//for(let i=0; i<newArray.length; i++){
+		//console.log("isimler", newArray[i].isim)
+	//}
+const yeniVeri = newArray[kisi];
+return `${yeniVeri.isim} isimli kişi ${yeniVeri.puan} puan verdi ve şunları yazdı: ${yeniVeri.geribildirim}`;  
 
 }
+console.log(AnahtardanDegerlendirmeAl(degerlendirmeler,3));
 
 
 
