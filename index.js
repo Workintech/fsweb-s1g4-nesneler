@@ -182,10 +182,10 @@ console.log(SonDegerlendirmeyiAl(degerlendirmeler));
 	]
 */
 
-function PuanaGoreDegerlendirmeAl(/* Kodlar buraya */) {
-    /* Kodlar buraya */
+function PuanaGoreDegerlendirmeAl(dizi, puanDegeri) {
+    return dizi.filter((item) => Math.floor(item.puan) === puanDegeri);
 }
-
+console.log(PuanaGoreDegerlendirmeAl(degerlendirmeler, 4));
 
 /*  BONUS 2:    
 	UzunDegerlendirmeleriAl fonksiyonuna aşağıdakileri uygulayın:
@@ -194,10 +194,12 @@ function PuanaGoreDegerlendirmeAl(/* Kodlar buraya */) {
 	
 */
 
-function UzunDegerlendirmeleriAl(/* Kodlar buraya */) {
-    /* Kodlar buraya */
-}
+function UzunDegerlendirmeleriAl(dizi) {
+ let kelime = dizi.filter(item => item.geribildirim.split("").length>15);
+ return kelime  
 
+}
+console.log(UzunDegerlendirmeleriAl(degerlendirmeler));
 
 /*  BONUS 3:  
 	Bu ek görevde degerlendirmeler dizisi kullanılmayacak!  Bu görevde kendi nesnenizi yaratmanız gerekmektedir.
