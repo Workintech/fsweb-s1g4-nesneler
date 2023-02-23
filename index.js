@@ -138,7 +138,7 @@ console.log(DegerledirmeEkle(degerlendirmeler, 'Hurşut', 2, 'Boktan yemekler!')
 */
 
 
-function AnahtardanDegerlendirmeAl(newArray. kisi) {
+function AnahtardanDegerlendirmeAl(newArray,kisi) {
 	//for(let i=0; i<newArray.length; i++){
 		//console.log("isimler", newArray[i].isim)
 	//}
