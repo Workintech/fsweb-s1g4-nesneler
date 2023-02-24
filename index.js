@@ -15,9 +15,15 @@ const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı
 */
 
 
-function MenuElemaniOlustur(/*Kodlar buraya*/){
-	/*Kodlar buraya*/
+function MenuElemaniOlustur(isim1,fiyat1,kategori1){
+	const yeniMenu={
+		isim:isim1,
+		fiyat:fiyat1,
+		kategori:kategori1
+	};
+	return yeniMenu
 }
+console.log(MenuElemaniOlustur('Cheeseburger', 8, 'Burgerler'))
 
 
 
@@ -49,9 +55,21 @@ function MenuElemaniOlustur(/*Kodlar buraya*/){
 const burger = {
 	isim: "Burger", 
 	fiyat: 18, 
-	kategori: "Öğle Yemeği", 
+	kategori: "Öğle Yemeği",
+	indirim:function(job)
+	{
+		if(job=="öğrenci" || job=="öğretmen")
+		{
+			return this.fiyat=this.fiyat-this.fiyat*0.25
+		}
+		else
+		{
+			return this.fiyat=this.fiyat-this.fiyat*0.10
+		}
+	} 
 
 }
+console.log(burger.indirim("öğrenci"))
 
 
 
@@ -71,7 +89,13 @@ const degerlendirmeler = [
 	Yukarıdaki degerlendirmeler dizisini(array) kullanarak:
 	1. Sadece Ahmet'in geribildirimini konsolda görüntüleyin - fonksiyona gerek yok
 */
-
+for(let i = 0 ; i<degerlendirmeler.length ; i++)
+{
+	if(degerlendirmeler[i].isim == 'Ahmet')
+	{
+		console.log(degerlendirmeler[i].geribildirim);
+	}
+}
 
 
 /*  Görev 4 (ototest yok):  
@@ -79,7 +103,14 @@ const degerlendirmeler = [
 	1. Bu geribildirimi Reyna'nın değerlendirmesine ekleyin - "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım"
 	2. degerlendirmeler dizisini konsolda görüntüleyerek çalışmanızı kontrol edin
 */
-
+for(let i=0;i<degerlendirmeler.length;i++)
+{
+	if(degerlendirmeler[i].isim=="Reyna")
+	{
+		degerlendirmeler[i].geribildirim="bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım"
+		console.log(degerlendirmeler[i].geribildirim);
+	}
+}
 
 
 /*  Görev 5: 
@@ -94,10 +125,17 @@ const degerlendirmeler = [
 */
 
 
-function DegerledirmeEkle(/*Kodlar buraya */){
-	/*Kodlar buraya */
+function DegerledirmeEkle(degerlendirmeler,isim,puan,geribildirim){
+	const yeni={
+		isim:isim,
+		puan:puan,
+		geribildirim:geribildirim
+	};
+	degerlendirmeler.push(yeni);
+	return degerlendirmeler
 	
 }
+console.log(DegerledirmeEkle(degerlendirmeler, 'Hurşut', 2, 'Boktan yemekler!'))
 
 
 
@@ -112,11 +150,11 @@ function DegerledirmeEkle(/*Kodlar buraya */){
 */
 
 
-function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
-
+function AnahtardanDegerlendirmeAl(degerlendirmeler,index) {
+	let mesaj=degerlendirmeler[index].isim + " isimli kişi "+degerlendirmeler[index].puan+" puan verdi ve şunları yazdı:"+degerlendirmeler[index].geribildirim
+	return mesaj
 }
-
+console.log(AnahtardanDegerlendirmeAl(degerlendirmeler,0))
 
 
 /*  Görev 7:  
@@ -132,9 +170,14 @@ function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
 */
 
 
-function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
+function SonDegerlendirmeyiAl(degerlendirmeler) {
+	let i = degerlendirmeler.length-1;
+	let message=degerlendirmeler[i].isim + " isimli kişi "+degerlendirmeler[i].puan+" puan verdi ve şunları yazdı:"+degerlendirmeler[i].geribildirim
+	return message	
+	
 } 
+console.log(SonDegerlendirmeyiAl(degerlendirmeler));
+
 
 
 
