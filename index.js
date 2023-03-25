@@ -13,11 +13,22 @@ const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı
 	
 	Örnek MenuElemaniOlustur('Cheeseburger', 8, 'Burgerler') şunu döndürmeli: {isim: 'Cheeseburger', fiyat: 8, kategori: 'Burgerler'}
 */
+function MenuElemaniOlustur(para1,para2,para3) {
 
 
-function MenuElemaniOlustur(/*Kodlar buraya*/){
-	/*Kodlar buraya*/
-}
+	const yeniNesne = {
+		isim:  para1,
+		fiyat: para2,
+		kategori: para3
+	};
+        console.log(yeniNesne)
+	    return yeniNesne;
+
+	}
+
+	console.log(MenuElemaniOlustur ("Cheeseburger", 8, "Burgerler"));
+
+
 
 
 
@@ -30,9 +41,22 @@ function MenuElemaniOlustur(/*Kodlar buraya*/){
 	
 	Örnek: MenuElemaniOlustur("Karışık Pizza",5,"Pizzalar") şunu döndürür: {isim:"Karışık Pizza",fiyat:5,kategori:"Pizzalar"}
 */
+function MenuElemaniOlustur(para1,para2,para3) {
 
 
+	const yeniNesne = {
+		isim:  para1,
+		fiyat: para2,
+		kategori: para3
+	};
+        console.log(yeniNesne)
+	    return yeniNesne;
 
+	}
+
+console.log (MenuElemaniOlustur("Karışık Pizza",5,"Pizzalar"));
+console.log (MenuElemaniOlustur("Kola",2,"İçecekler"));
+console.log (MenuElemaniOlustur("Fettuccine",8,"Makarnalar"));
 /* Görev 2: 
 	Özel bir öğle yemeği yiyorsun! Öğretmen ve öğrencilere %25, diğer kişilere %10 indirim var. Aşağıdaki burger nesnesine, indirimi fiyatı otomatik olarak hesaplayan bir metot ekleyin.
 	
@@ -50,10 +74,19 @@ const burger = {
 	isim: "Burger", 
 	fiyat: 18, 
 	kategori: "Öğle Yemeği", 
+	indirim: function (meslek) {
+		if (meslek == "öğretmen" || meslek == "öğrenci") {
+			return this.fiyat*0.75 
+			} else { (meslek == "diğer")
+				return this.fiyat*0.9
+			}
+		}
 
-}
+	}
 
 
+console.log (burger.indirim("öğretmen"));
+console.log (burger.indirim("diğer"));
 
 ///////////////Değerlendirmeler (MVP)///////////////////
 const degerlendirmeler = [
@@ -73,14 +106,16 @@ const degerlendirmeler = [
 */
 
 
+console.log (degerlendirmeler[5]);
 
 /*  Görev 4 (ototest yok):  
 	Reyna'nın geribildirimi girilmemiş! Aşağıdakileri uygulayın: (fonksiyona gerek yok) 
 	1. Bu geribildirimi Reyna'nın değerlendirmesine ekleyin - "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım"
 	2. degerlendirmeler dizisini konsolda görüntüleyerek çalışmanızı kontrol edin
 */
+degerlendirmeler[7].geribildirim = "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım"
 
-
+console.log(degerlendirmeler);
 
 /*  Görev 5: 
 	isim, puan, geribildirim'i içeren bir değerlendirme nesnesi oluşturup, yeni değerlendirmeyi mevcut dizinin(array) sonuna ekleyip sonuç dizisini döndüren bir fonksiyon tanımlayın. 
@@ -94,11 +129,17 @@ const degerlendirmeler = [
 */
 
 
-function DegerledirmeEkle(/*Kodlar buraya */){
-	/*Kodlar buraya */
-	
+function DegerledirmeEkle(para1,para2,para3,para4) {
+	const yeniNesne = {
+		degerlendirmeler: para1,
+		isim: para2,
+		puan: para3,
+		geribildirim: para4
+	}
+	console.log(yeniNesne)
+	    return yeniNesne;
 }
-
+console.log (DegerledirmeEkle(degerlendirmeler, 'Hurşut', 2, 'Boktan yemekler!'));
 
 
 /*  Görev 6: 
@@ -132,8 +173,8 @@ function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
 */
 
 
-function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
+function SonDegerlendirmeyiAl(degerlendirmeler) {
+	
 } 
 
 
