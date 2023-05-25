@@ -40,9 +40,9 @@ describe('burger.indirim uygulaması', ()=>{
 	})
 });
 
-describe('DegerledirmeEkle', ()=>{
-    it('DegerledirmeEkle nesneleri içeren bir dizi döndürüyor', ()=>{
-        expect(functions.DegerledirmeEkle(degerlendirmeler, 'Daniela', 5, 'great eats!')).toEqual(degerlendirmeler = [
+describe('DegerlendirmeEkle', ()=>{
+    it('DegerlendirmeEkle nesneleri içeren bir dizi döndürüyor', ()=>{
+        expect(functions.DegerlendirmeEkle(degerlendirmeler, 'Daniela', 5, 'great eats!')).toEqual(degerlendirmeler = [
 			{isim: "Nalan", puan: 5, geribildirim:"Mükemmel atmosfer ve mükemmel vegan seçenekleri!"},
 			{isim: "Kuddusi", puan: 3, geribildirim:"Benim zevkime göre biraz fazla yenilikçi, burger iyi ama fiyatı yüksek"},
 			{isim: "Kamuran", puan: 4, geribildirim:"eğlenceli bilgiler ve havalı hisler"},
