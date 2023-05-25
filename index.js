@@ -85,16 +85,16 @@ const degerlendirmeler = [
 /*  Görev 5: 
 	isim, puan, geribildirim'i içeren bir değerlendirme nesnesi oluşturup, yeni değerlendirmeyi mevcut dizinin(array) sonuna ekleyip sonuç dizisini döndüren bir fonksiyon tanımlayın. 
 	
-	DegerledirmeEkle fonksiyonunu kullanarak aşağıdakileri uygulayın:
+	DegerlendirmeEkle fonksiyonunu kullanarak aşağıdakileri uygulayın:
 	1. Verilen degerlendirmeler dizisini fonksiyonun İLK parametresi olarak alacak
 	2. Şu parametreleri alacak: isim, puan, and geribildirim; bunları İKİNCİ, ÜÇÜNCÜ ve DÖRDÜNCÜ parametre olarak alacak
 	3. Fonksiyon yeni bir nesne yaratacak ve dizinin sonuna bu nesneyi ekleyecek.
-	🌟 ÖRNEK: DegerledirmeEkle(degerlendirmeler, 'Hurşut', 2, 'Boktan yemekler!') dizinin sonuna şunu eklemeli: {isim: 'Hurşut', puan: 2, geribildirim: 'Boktan yemekler!'}
+	🌟 ÖRNEK: DegerlendirmeEkle(degerlendirmeler, 'Hurşut', 2, 'Boktan yemekler!') dizinin sonuna şunu eklemeli: {isim: 'Hurşut', puan: 2, geribildirim: 'Boktan yemekler!'}
 	4. Güncellenmiş diziyi döndürecek
 */
 
 
-function DegerledirmeEkle(/*Kodlar buraya */){
+function DegerlendirmeEkle(/*Kodlar buraya */){
 	/*Kodlar buraya */
 	
 }
@@ -106,7 +106,7 @@ function DegerledirmeEkle(/*Kodlar buraya */){
 	
 	Aşağıdaki AnahtardanDegerlendirmeAl fonksiyonu kullanarak aşağıdakileri uygulayın:
 	1. Argüman olarak bir diziyi ilk parametresi olarak alacak
-	2. Dizinin kullanılmak istenen anahtarını ikinci parametre olarak alacak
+	2. Dizinin kullanılmak istenen indeksini ikinci parametre olarak alacak
 	3. Fonksiyon şu stringi döndürmeli: "{isim} isimli kişi {puan} puan verdi ve şunları yazdı: {geribildirim}"
 	Örnek: AnahtardanDegerlendirmeAl(degerlendirmeler,0) şunu döndürmeli: "Nalan isimli kişi 5 puan verdi ve şunları yazdı: Mükemmel atmosfer ve mükemmel vegan seçenekleri!"
 */
@@ -205,7 +205,7 @@ module.exports = {
 	sa,
 	MenuElemaniOlustur,
 	burger,
-	DegerledirmeEkle,
+	DegerlendirmeEkle,
 	AnahtardanDegerlendirmeAl,
 	SonDegerlendirmeyiAl,
 }
