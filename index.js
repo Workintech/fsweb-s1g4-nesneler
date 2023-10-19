@@ -15,9 +15,15 @@ const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı
 */
 
 
-function MenuElemaniOlustur(/*Kodlar buraya*/){
-	/*Kodlar buraya*/
-}
+function MenuElemaniOlustur(isimX, fiyatx, kategoriX){
+	 const yeniMenu = {}
+	 yeniMenu.isim=isimX,
+     yeniMenu["fiyat"]=fiyatx
+	 const key="kategori";
+	 yeniMenu[key]=kategoriX;
+     return yeniMenu;
+
+}	 
 
 
 
@@ -50,9 +56,14 @@ const burger = {
 	isim: "Burger", 
 	fiyat: 18, 
 	kategori: "Öğle Yemeği", 
-
+    
+	indirim: function (meslek) {
+		if (meslek == "öğretmen" || meslek == "öğrenci"){
+		return this.fiyat*0.75;
+		} else if (meslek == "diğer")
+		return this.fiyat*0.9;
+	}
 }
-
 
 
 ///////////////Değerlendirmeler (MVP)///////////////////
@@ -71,6 +82,14 @@ const degerlendirmeler = [
 	Yukarıdaki degerlendirmeler dizisini(array) kullanarak:
 	1. Sadece Ahmet'in geribildirimini konsolda görüntüleyin - fonksiyona gerek yok
 */
+for(let i=0 ;i<degerlendirmeler.length; i++){
+	if(degerlendirmeler[i].isim=="Ahmet"){
+
+		console.log(degerlendirmeler[5].geribildirim)
+
+	}
+
+}
 
 
 
@@ -79,6 +98,8 @@ const degerlendirmeler = [
 	1. Bu geribildirimi Reyna'nın değerlendirmesine ekleyin - "bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım"
 	2. degerlendirmeler dizisini konsolda görüntüleyerek çalışmanızı kontrol edin
 */
+
+degerlendirmeler[7].geribildirim="bu mekan bir harika dostum, yine de garsonun gülümsememesinden puan kırdım";
 
 
 
@@ -94,9 +115,14 @@ const degerlendirmeler = [
 */
 
 
-function DegerlendirmeEkle(/*Kodlar buraya */){
-	/*Kodlar buraya */
-	
+function DegerlendirmeEkle(dizi,isim,puan,geribildirim){
+	const yorum ={
+		isim:isim,
+		puan:puan,
+		geribildirim:geribildirim,
+	}
+	dizi.push(yorum)
+	return dizi
 }
 
 
@@ -112,8 +138,12 @@ function DegerlendirmeEkle(/*Kodlar buraya */){
 */
 
 
-function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
+function AnahtardanDegerlendirmeAl(dizi,index) 
+{
+	const yorum = dizi[index];
+	const metin = `${yorum.isim} isimli kişi ${yorum.puan} puan verdi ve şunları yazdı: ${yorum.geribildirim}`
+	return metin;
+	
 
 }
 
@@ -132,8 +162,14 @@ function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
 */
 
 
-function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
+function SonDegerlendirmeyiAl(dizi) {
+
+	const yorum = dizi[dizi.length-1];
+	const metin = `${yorum.isim} isimli kişi ${yorum.puan} puan verdi ve şunları yazdı: ${yorum.geribildirim}`
+	return metin;
+	
+
+	
 } 
 
 
@@ -154,10 +190,17 @@ function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
 	]
 */
 
-function PuanaGoreDegerlendirmeAl(/* Kodlar buraya */) {
-    /* Kodlar buraya */
-}
+//function PuanaGoreDegerlendirmeAl(dizi, point) {
+	//Math.floor();
+	//const result = [];
+	//for(let item of dizi){
+		//if(Math.floor(yorum.puan)===point)
+			//result.push(yorum);
 
+		//}
+//}
+		//return result;
+//console.log(PuanaGoreDegerlendirmeAl(degerlendirmeler, 3));	
 
 /*  BONUS 2:    
 	UzunDegerlendirmeleriAl fonksiyonuna aşağıdakileri uygulayın:
@@ -166,10 +209,17 @@ function PuanaGoreDegerlendirmeAl(/* Kodlar buraya */) {
 	
 */
 
-function UzunDegerlendirmeleriAl(/* Kodlar buraya */) {
-    /* Kodlar buraya */
+function UzunDegerlendirmeleriAl(dizi) {
+	const result = [];
+    for(let yorum of dizi){
+		const kelimeler = yorum.geribildirim.split(" "); //array olarak verecek
+		if(kelimeler.length > 15){
+			result.push(yorum);
+		}
+	}
+	return result;
 }
-
+console.log (UzunDegerlendirmeleriAl(degerlendirmeler));
 
 /*  BONUS 3:  
 	Bu ek görevde degerlendirmeler dizisi kullanılmayacak!  Bu görevde kendi nesnenizi yaratmanız gerekmektedir.
@@ -189,11 +239,26 @@ function UzunDegerlendirmeleriAl(/* Kodlar buraya */) {
 */
 
 
-function arabaYapici(/* Kodlar buraya */) {
-    /* Kodlar buraya */
+function arabaYapici(km) {
+	const araba = {
+		kilometre:km,
+		surus:function(yol){
+			this.kilometre += yol;
+			return this.kilometre
+		}
+	}
+    return araba;
     
 }
+const passat = arabaYapici(150000);
+const yol1 = passat.surus(800);
+const yol2 = passat.surus(20);
+const yol3 = passat.surus(800);
 
+console.log("passat",passat);
+console.log("yol1",yol1);
+console.log("yol2",yol2);
+console.log("yol3",yol3);
 
 /*  Buradan aşağıdaki kodları değiştirmeyin lütfen */
 function sa(){
